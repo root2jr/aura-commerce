@@ -1,0 +1,133 @@
+.contact-section {
+  background-color: var(--white);
+  color: var(--black);
+  padding: 8rem 4rem;
+  border-top: 1px solid #eee;
+}
+
+.contact-container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.contact-header h2 {
+  font-size: 5rem;
+  line-height: 0.9;
+  margin-bottom: 2rem;
+  font-weight: 700;
+}
+
+.contact-header p {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #666;
+}
+
+.contact-form-wrapper {
+  width: 50%;
+  padding-top: 1rem;
+}
+
+/* Direct Links */
+.direct-contacts {
+  display: flex;
+  gap: 4rem;
+  margin-bottom: 4rem;
+}
+
+.dc-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.dc-item span {
+  font-size: 0.75rem;
+  color: #888;
+  margin-bottom: 0.5rem;
+  letter-spacing: 1px;
+}
+
+.dc-item a {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.2rem;
+  color: var(--black);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s;
+}
+
+.dc-item a:hover {
+  border-bottom: 1px solid var(--black);
+}
+
+/* Minimal Form */
+.minimal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  padding: 1rem 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  color: var(--black);
+  outline: none;
+  transition: border-color 0.3s;
+  resize: none;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-bottom: 1px solid var(--black);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #aaa;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+}
+
+.submit-btn {
+  align-self: flex-start;
+  background: var(--black);
+  color: var(--white);
+  border: none;
+  padding: 1rem 3rem;
+  font-family: 'Oswald', sans-serif;
+  letter-spacing: 1px;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: opacity 0.3s;
+}
+
+.submit-btn:hover {
+  opacity: 0.8;
+}
+
+@media (max-width: 900px) {
+  .contact-container {
+    flex-direction: column;
+  }
+  .contact-header h2 {
+    font-size: 3.5rem;
+  }
+  .contact-form-wrapper {
+    width: 100%;
+    margin-top: 4rem;
+  }
+  .direct-contacts {
+    flex-direction: column;
+    gap: 2rem;
+  }
+}

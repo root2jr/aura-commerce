@@ -1,0 +1,189 @@
+/* BASE NAVBAR STYLES */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 2rem 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 999; /* Highest priority */
+  transition: all 0.3s ease;
+  color: black;
+  background-color: white;
+}
+
+.logo {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+  font-weight: 700;
+  text-decoration: none;
+  color: inherit;
+  z-index: 1000;
+}
+
+/* DESKTOP LINKS */
+.desktop-links {
+  display: flex;
+  gap: 3rem;
+}
+
+.desktop-links button {
+  background: none;
+  border: none;
+  color: inherit;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: opacity 0.3s;
+}
+
+.desktop-links button:hover {
+  opacity: 0.6;
+}
+
+/* ICONS */
+.nav-icons {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  z-index: 1000;
+}
+
+.nav-icons .icon {
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.menu-toggle {
+  cursor: pointer;
+  display: flex; /* Always visible to allow opening menu */
+  align-items: center;
+}
+
+.cart-wrapper {
+  position: relative;
+  cursor: pointer;
+}
+
+.cart-count {
+  position: absolute;
+  top: -5px;
+  right: -8px;
+  font-size: 0.7rem;
+  font-weight: bold;
+}
+
+/* MOBILE OVERLAY MENU */
+.mobile-menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #050505; /* Deep Black Background */
+  color: #ffffff;
+  z-index: 990; /* Just below the navbar buttons */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 4rem;
+  transform: translateY(-100%); /* Hidden by default */
+}
+
+/* Menu Links Typography */
+.mobile-links {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.mobile-link-item {
+  display: flex;
+  align-items: baseline;
+  gap: 2rem;
+  overflow: hidden; /* For stagger animation */
+  border-bottom: 1px solid #222;
+  padding-bottom: 1rem;
+}
+
+.mobile-link-item .index {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  color: #555;
+}
+
+.mobile-link-item button {
+  background: none;
+  border: none;
+  color: #fff;
+  font-family: 'Oswald', sans-serif;
+  font-size: 4rem; /* Giant text */
+  text-transform: uppercase;
+  cursor: pointer;
+  line-height: 1;
+  transition: padding-left 0.3s ease;
+}
+
+.mobile-link-item button:hover {
+  padding-left: 20px;
+  color: #ccc;
+}
+
+.mobile-footer {
+  position: absolute;
+  bottom: 2rem;
+  left: 4rem;
+  font-size: 0.8rem;
+  color: #555;
+  letter-spacing: 1px;
+}
+
+/* RESPONSIVE BREAKPOINTS */
+@media (max-width: 1024px) {
+  .navbar {
+    padding: 1.5rem 2rem;
+  }
+  
+  .desktop-links {
+    display: none; /* Hide standard links on tablet/mobile */
+  }
+
+  .mobile-link-item button {
+    font-size: 3rem; /* Slightly smaller on tablet */
+  }
+}
+
+@media (max-width: 600px) {
+  .logo {
+    font-size: 1.2rem;
+  }
+
+  .search-icon {
+    display: none; /* Hide search on small mobile to save space */
+  }
+  
+  .nav-icons {
+    gap: 1.5rem;
+  }
+
+  .mobile-menu-overlay {
+    padding: 2rem;
+  }
+
+  .mobile-link-item {
+    gap: 1rem;
+  }
+
+  .mobile-link-item button {
+    font-size: 2.2rem; /* Mobile font size */
+  }
+  
+  .mobile-footer {
+    left: 2rem;
+  }
+}

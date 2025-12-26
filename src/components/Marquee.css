@@ -1,0 +1,23 @@
+.marquee-wrapper {
+  background-color: var(--white);
+  color: var(--black);
+  padding: 1.5rem 0;
+  overflow: hidden;
+  border-bottom: 1px solid #ddd;
+  white-space: nowrap;
+}
+
+.marquee-track {
+  display: inline-block;
+  font-family: 'Oswald', sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  /* Outline text effect */
+  -webkit-text-stroke: 1px var(--black); 
+  color: transparent; 
+}
+
+.marquee-track span {
+  margin-right: 2rem;
+}
