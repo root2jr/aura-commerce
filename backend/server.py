@@ -43,7 +43,7 @@ async def handle_auth(data: AuthModel):
     if existing_user:
         passw =  existing_user["password"].encode("utf-8")
         curr = data.password.encode("utf-8")
-        if hash.checkpw(passw, curr):
+        if hash.checkpw(curr, passw):
              return {"status": "success", "message": "Welcome back to The Archive", "user": data.username}
         else:
              raise HTTPException(status_code=401, detail="Invalid credentials")
