@@ -19,6 +19,7 @@ products_collection = db["products"]
 
 origins = [
     "http://localhost:5173",
+    "https://aura-commerce.netlify.app"
 ]
 
 app.add_middleware(
@@ -31,6 +32,7 @@ app.add_middleware(
 
 class AuthModel(BaseModel):
     username: str
+    email: str | None
     password: str
     
 class JWTMODEL(BaseModel):
@@ -56,18 +58,17 @@ def check_jwt(jwt: str):
         return False
 
     
-
 @app.post("/auth")
 async def handle_auth(data: AuthModel):
-    print(f"Received request: {data.username}")
-    existing_user = await users_collection.find_one({"username": data.username})
+    print(f"Received request: {data.email}")
+    existing_user = await users_collection.find_one({"email": data.email})
 
     if existing_user:
         passw =  existing_user["password"].encode("utf-8")
         curr = data.password.encode("utf-8")
         if hash.checkpw(curr, passw):
-             token = create_jwt(data.username)
-             return {"status": "success", "message": "Welcome back to The Archive", "user": data.username, "token": token}
+             token = create_jwt(data.email)
+             return {"status": "success", "message": "Welcome back to The Archive", "user": data.email, "token": token}
         else:
              raise HTTPException(status_code=401, detail="Invalid credentials")
     
@@ -76,10 +77,11 @@ async def handle_auth(data: AuthModel):
             hashed_pass =  hash.hashpw(data.password.encode("utf-8"), hash.gensalt())
             new_user = {
                 "username": data.username,
+                "email": data.email,
                 "password": hashed_pass.decode("utf-8")
             }
             await users_collection.insert_one(new_user)
-            token = create_jwt(data.username)
+            token = create_jwt(data.email)
             return {"status": "created", "message": "Joined the Cult", "user": data.username, "token": token}
         
         else:
