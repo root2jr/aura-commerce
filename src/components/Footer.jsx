@@ -80,9 +80,9 @@ const Footer = () => {
 
       {/* Bottom Section: Massive Logo */}
       <div className="footer-bottom">
-        <h1 className="footer-logo" ref={logoRef}>ACHROMATIC</h1>
+        <h1 className="footer-logo" ref={logoRef}>AURA</h1>
         <div className="footer-copy">
-          <span>© 2025 ACHROMATIC STUDIOS</span>
+          <span>© 2025 AuraCommerce</span>
           <span>DESIGNED IN THE VOID</span>
         </div>
       </div>

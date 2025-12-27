@@ -11,7 +11,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Auth />} />
 
-        <Route path="/product" element={<ProductPage />} />
+        <Route path="/product/:id" element={<ProductPage />} />
         <Route path="/home" element={<Home />} />
         <Route path="*" element={<div style={{ padding: "10rem", textAlign: "center" }}>PAGE NOT FOUND</div>} />
       </Routes>

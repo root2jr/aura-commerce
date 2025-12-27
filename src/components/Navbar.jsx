@@ -69,7 +69,7 @@ const Navbar = () => {
         
         {/* LOGO */}
         <Link to="/" className="logo" onClick={() => setIsMenuOpen(false)}>
-          ACHROMATIC
+          AURA
         </Link>
 
         {/* DESKTOP LINKS (Hidden on Mobile) */}

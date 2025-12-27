@@ -1,4 +1,4 @@
-import React, { useState, useLayoutEffect, useRef } from 'react';
+import React, { useState, useLayoutEffect, useRef, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import gsap from 'gsap';
 import { FiArrowRight, FiX } from 'react-icons/fi';
@@ -51,6 +51,7 @@ const Auth = () => {
         message: "Welcome back to Aura.",
         type: "success"
       });
+      localStorage.setItem("jwt", response.data.token);
       router("/home");
     } catch (error) {
       console.error("Error:", error);
@@ -60,6 +61,14 @@ const Auth = () => {
       })
     }
   }
+
+
+  useEffect(() => {
+    const jwt = localStorage.getItem("jwt");
+    if(jwt){
+      router("/home");
+    }
+  })
 
   return (
     <div className="auth-page" ref={containerRef}>
