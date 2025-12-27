@@ -35,12 +35,10 @@ const Auth = () => {
     e.preventDefault();
 
     try {
-      // 3. Use the state variables directly here
       const payload = {
-        username: username,
+        email: username,
         password: password,
-        // Only include fullName if it's a registration
-        ...(!isLogin && { fullName: fullName })
+        username: fullName
       };
 
       console.log("Sending payload:", payload);
